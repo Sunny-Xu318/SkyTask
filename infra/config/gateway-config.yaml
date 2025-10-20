@@ -1,0 +1,37 @@
+# Data Id: skytask-gateway.yaml
+# Group: DEFAULT_GROUP
+# Namespace: public (可按需覆盖)
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: scheduler-api-direct
+          uri: lb://skytask-scheduler
+          predicates:
+            - Path=/api/**
+        - id: admin-api
+          uri: lb://skytask-admin-api
+          predicates:
+            - Path=/admin/**
+          filters:
+            - StripPrefix=1
+        - id: auth-service
+          uri: lb://skytask-auth
+          predicates:
+            - Path=/auth/**
+        - id: scheduler-api
+          uri: lb://skytask-scheduler
+          predicates:
+            - Path=/scheduler/**
+          filters:
+            - StripPrefix=1
+        - id: worker-internal
+          uri: lb://skytask-worker
+          predicates:
+            - Path=/worker/**
+          filters:
+            - StripPrefix=1

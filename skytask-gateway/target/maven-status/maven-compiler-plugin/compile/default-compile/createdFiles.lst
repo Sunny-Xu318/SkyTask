@@ -1,0 +1,4 @@
+com\skytask\gateway\filter\GatewayAuthFilter.class
+com\skytask\gateway\GatewayApplication.class
+com\skytask\gateway\security\JwtVerifier.class
+com\skytask\gateway\config\SentinelGatewayConfiguration.class

@@ -1,0 +1,57 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: skytask-worker
+  cloud:
+    discovery:
+      client:
+        simple:
+          enabled: false
+    netflix:
+      eureka:
+        client:
+          enabled: false
+    nacos:
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_DISCOVERY_GROUP:DEFAULT_GROUP}
+        username: ${NACOS_USERNAME:}
+        password: ${NACOS_PASSWORD:}
+      config:
+        enabled: ${NACOS_CONFIG_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_CONFIG_GROUP:DEFAULT_GROUP}
+        file-extension: yaml
+        username: ${NACOS_USERNAME:}
+        password: ${NACOS_PASSWORD:}
+        import-check:
+          enabled: false
+    sentinel:
+      enabled: ${SENTINEL_ENABLED:true}
+      transport:
+        dashboard: ${SENTINEL_DASHBOARD:http://localhost:8858}
+        port: ${SENTINEL_CLIENT_PORT:8720}
+  sleuth:
+    propagation:
+      type: B3
+    baggage:
+      remote-fields: X-SkyTask-Tenant,X-SkyTask-User
+  zipkin:
+    base-url: ${ZIPKIN_BASE_URL:http://localhost:9411}
+    enabled: ${ZIPKIN_ENABLED:false}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}

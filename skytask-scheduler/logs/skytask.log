@@ -1,0 +1,387 @@
+2025-10-20 17:05:14.926  INFO [skytask-scheduler,,] 6916 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2025-10-20 17:05:15.450  INFO [skytask-scheduler,,] 6916 --- [main] com.skytask.SkyTaskSchedulerApplication  : Starting SkyTaskSchedulerApplication using Java 13.0.2 on LAPTOP-KVAIJT2B with PID 6916 (D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-scheduler\target\classes started by 123 in D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-scheduler)
+2025-10-20 17:05:15.452  INFO [skytask-scheduler,,] 6916 --- [main] com.skytask.SkyTaskSchedulerApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-10-20 17:05:18.173  INFO [skytask-scheduler,,] 6916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-20 17:05:18.177  INFO [skytask-scheduler,,] 6916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-20 17:05:18.893  INFO [skytask-scheduler,,] 6916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 706 ms. Found 6 JPA repository interfaces.
+2025-10-20 17:05:18.916  INFO [skytask-scheduler,,] 6916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-20 17:05:18.918  INFO [skytask-scheduler,,] 6916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-20 17:05:18.954  INFO [skytask-scheduler,,] 6916 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskDependencyRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:05:18.957  INFO [skytask-scheduler,,] 6916 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskInstanceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:05:18.958  INFO [skytask-scheduler,,] 6916 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskParamRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:05:18.959  INFO [skytask-scheduler,,] 6916 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:05:18.960  INFO [skytask-scheduler,,] 6916 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskRetryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:05:18.961  INFO [skytask-scheduler,,] 6916 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TenantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:05:18.961  INFO [skytask-scheduler,,] 6916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2025-10-20 17:05:19.881  INFO [skytask-scheduler,,] 6916 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2dc1cfa1-a385-321b-a0d9-4d167fd0eac7
+2025-10-20 17:05:21.205  INFO [skytask-scheduler,,] 6916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-10-20 17:05:21.220  INFO [skytask-scheduler,,] 6916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-20 17:05:21.220  INFO [skytask-scheduler,,] 6916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-10-20 17:05:21.562  INFO [skytask-scheduler,,] 6916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-20 17:05:21.562  INFO [skytask-scheduler,,] 6916 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6001 ms
+2025-10-20 17:05:22.604  INFO [skytask-scheduler,,] 6916 --- [main] c.a.cloud.nacos.NacosConfigProperties    : set nacos config namespace 'public' to ''
+2025-10-20 17:05:22.671  INFO [skytask-scheduler,,] 6916 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-10-20 17:05:22.671  INFO [skytask-scheduler,,] 6916 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-10-20 17:05:23.271  INFO [skytask-scheduler,,] 6916 --- [main] org.redisson.Version                     : Redisson 3.24.3
+2025-10-20 17:05:24.284  INFO [skytask-scheduler,,] 6916 --- [redisson-netty-2-5] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for localhost/127.0.0.1:6379
+2025-10-20 17:05:24.474  INFO [skytask-scheduler,,] 6916 --- [redisson-netty-2-20] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for localhost/127.0.0.1:6379
+2025-10-20 17:05:25.554  INFO [skytask-scheduler,,] 6916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-20 17:05:25.849  INFO [skytask-scheduler,,] 6916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-20 17:05:28.913  INFO [skytask-scheduler,,] 6916 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2025-10-20 17:05:28.930  INFO [skytask-scheduler,,] 6916 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-10-20 17:05:28.930  INFO [skytask-scheduler,,] 6916 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2025-10-20 17:05:28.933  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Using db table-based data access locking (synchronization).
+2025-10-20 17:05:28.936  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : JobStoreCMT initialized.
+2025-10-20 17:05:28.937  INFO [skytask-scheduler,,] 6916 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'schedulerFactoryBean' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2025-10-20 17:05:28.937  INFO [skytask-scheduler,,] 6916 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'schedulerFactoryBean' initialized from an externally provided properties instance.
+2025-10-20 17:05:28.937  INFO [skytask-scheduler,,] 6916 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2025-10-20 17:05:28.937  INFO [skytask-scheduler,,] 6916 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: com.skytask.config.QuartzConfig$AutowiringSpringBeanJobFactory@6debf1b8
+2025-10-20 17:05:29.321  INFO [skytask-scheduler,,] 6916 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-20 17:05:29.576  INFO [skytask-scheduler,,] 6916 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-10-20 17:05:29.865  INFO [skytask-scheduler,,] 6916 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-10-20 17:05:30.050  INFO [skytask-scheduler,,] 6916 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-10-20 17:05:31.066  INFO [skytask-scheduler,,] 6916 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-10-20 17:05:31.086  INFO [skytask-scheduler,,] 6916 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-20 17:05:32.768  INFO [skytask-scheduler,,] 6916 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'skytask-worker' URL not provided. Will try picking an instance via load-balancing.
+2025-10-20 17:05:33.612  INFO [skytask-scheduler,,] 6916 --- [main] c.s.scheduler.TaskSchedulerService       : Task 2 scheduled with trigger DEFAULT.task-trigger-2
+2025-10-20 17:05:33.675  INFO [skytask-scheduler,,] 6916 --- [main] c.s.scheduler.TaskSchedulerService       : Task 3 scheduled with trigger DEFAULT.task-trigger-3
+2025-10-20 17:05:33.722  INFO [skytask-scheduler,,] 6916 --- [main] c.s.scheduler.TaskSchedulerService       : Task 4 scheduled with trigger DEFAULT.task-trigger-4
+2025-10-20 17:05:34.178  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2213c8fe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cf2b47a, org.springframework.security.web.context.SecurityContextPersistenceFilter@60a4e124, org.springframework.security.web.header.HeaderWriterFilter@219acda9, org.springframework.web.filter.CorsFilter@1db30771, org.springframework.security.web.authentication.logout.LogoutFilter@4288d7b6, com.skytask.security.TenantAuthenticationFilter@24955144, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f481ec3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6448679f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76fc11ab, org.springframework.security.web.session.SessionManagementFilter@74055597, org.springframework.security.web.access.ExceptionTranslationFilter@15da3ce9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7bca96d6]
+2025-10-20 17:05:34.466  INFO [skytask-scheduler,,] 6916 --- [main] c.a.c.sentinel.SentinelWebMvcConfigurer  : [Sentinel Starter] register SentinelWebInterceptor with urlPatterns: [/**].
+2025-10-20 17:05:36.782  WARN [skytask-scheduler,,] 6916 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-10-20 17:05:36.996  INFO [skytask-scheduler,,] 6916 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-10-20 17:05:37.351  INFO [skytask-scheduler,,] 6916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-10-20 17:05:37.385  INFO [skytask-scheduler,,] 6916 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-10-20 17:05:37.385  INFO [skytask-scheduler,,] 6916 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-10-20 17:05:42.838  INFO [skytask-scheduler,,] 6916 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP skytask-scheduler 10.194.165.167:8081 register finished
+2025-10-20 17:05:43.266  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2025-10-20 17:05:43.276  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Freed 0 triggers from 'acquired' / 'blocked' state.
+2025-10-20 17:05:43.281  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2025-10-20 17:05:43.281  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Recovery complete.
+2025-10-20 17:05:43.284  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Removed 0 'complete' triggers.
+2025-10-20 17:05:43.285  INFO [skytask-scheduler,,] 6916 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Removed 0 stale fired job entries.
+2025-10-20 17:05:43.287  INFO [skytask-scheduler,,] 6916 --- [main] org.quartz.core.QuartzScheduler          : Scheduler schedulerFactoryBean_$_NON_CLUSTERED started.
+2025-10-20 17:05:43.346  INFO [skytask-scheduler,,] 6916 --- [main] com.skytask.SkyTaskSchedulerApplication  : Started SkyTaskSchedulerApplication in 29.76 seconds (JVM running for 31.539)
+2025-10-20 17:05:43.379  INFO [skytask-scheduler,,] 6916 --- [main] com.skytask.bootstrap.DataInitializer    : Skip demo data seeding (task table already contains records)
+2025-10-20 17:05:43.794  WARN [skytask-scheduler,e8f0c5f55b41271c,5064fc634d604cec] 6916 --- [SkyTask-Worker-1] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: skytask-worker
+2025-10-20 17:05:43.796  WARN [skytask-scheduler,e8f0c5f55b41271c,5064fc634d604cec] 6916 --- [SkyTask-Worker-1] RetryableFeignBlockingLoadBalancerClient : Service instance was not resolved, executing the original request
+2025-10-20 17:05:46.111 ERROR [skytask-scheduler,e8f0c5f55b41271c,5064fc634d604cec] 6916 --- [SkyTask-Worker-1] c.skytask.service.TaskExecutionService   : Failed to dispatch task 2 instance 32d1bc01-112e-4fcf-8dbe-48411bf018c1 to worker: skytask-worker executing POST http://skytask-worker/api/worker/tasks/2/execute
+
+feign.RetryableException: skytask-worker executing POST http://skytask-worker/api/worker/tasks/2/execute
+	at feign.FeignException.errorExecuting(FeignException.java:268) ~[feign-core-11.10.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:131) ~[feign-core-11.10.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:91) ~[feign-core-11.10.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:100) ~[feign-core-11.10.jar:na]
+	at com.sun.proxy.$Proxy211.executeTask(Unknown Source) ~[na:na]
+	at com.skytask.service.TaskExecutionService.dispatchToWorker(TaskExecutionService.java:207) ~[classes/:na]
+	at com.skytask.service.TaskExecutionService.lambda$executeInternal$1(TaskExecutionService.java:157) ~[classes/:na]
+	at org.springframework.cloud.sleuth.instrument.async.TraceRunnable.run(TraceRunnable.java:64) ~[spring-cloud-sleuth-instrumentation-3.1.9.jar:3.1.9]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:830) ~[na:na]
+Caused by: java.net.UnknownHostException: skytask-worker
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:603) ~[na:na]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1248) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1362) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1337) ~[na:na]
+	at feign.Client$Default.convertAndSend(Client.java:208) ~[feign-core-11.10.jar:na]
+	at feign.Client$Default.execute(Client.java:105) ~[feign-core-11.10.jar:na]
+	at org.springframework.cloud.sleuth.instrument.web.client.feign.TracingFeignClient.execute(TracingFeignClient.java:79) ~[spring-cloud-sleuth-instrumentation-3.1.9.jar:3.1.9]
+	at org.springframework.cloud.sleuth.instrument.web.client.feign.LazyTracingFeignClient.execute(LazyTracingFeignClient.java:62) ~[spring-cloud-sleuth-instrumentation-3.1.9.jar:3.1.9]
+	at org.springframework.cloud.openfeign.loadbalancer.LoadBalancerUtils.executeWithLoadBalancerLifecycleProcessing(LoadBalancerUtils.java:57) ~[spring-cloud-openfeign-core-3.1.8.jar:3.1.8]
+	at org.springframework.cloud.openfeign.loadbalancer.RetryableFeignBlockingLoadBalancerClient.lambda$execute$2(RetryableFeignBlockingLoadBalancerClient.java:169) ~[spring-cloud-openfeign-core-3.1.8.jar:3.1.8]
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:329) ~[spring-retry-1.3.4.jar:na]
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:225) ~[spring-retry-1.3.4.jar:na]
+	at org.springframework.cloud.openfeign.loadbalancer.RetryableFeignBlockingLoadBalancerClient.execute(RetryableFeignBlockingLoadBalancerClient.java:115) ~[spring-cloud-openfeign-core-3.1.8.jar:3.1.8]
+	at org.springframework.cloud.sleuth.instrument.web.client.feign.TraceRetryableFeignBlockingLoadBalancerClient.execute(TraceRetryableFeignBlockingLoadBalancerClient.java:79) ~[spring-cloud-sleuth-instrumentation-3.1.9.jar:3.1.9]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:121) ~[feign-core-11.10.jar:na]
+	... 9 common frames omitted
+
+2025-10-20 17:05:46.252  INFO [skytask-scheduler,e8f0c5f55b41271c,5064fc634d604cec] 6916 --- [SkyTask-Worker-1] c.s.scheduler.TaskSchedulerService       : Retry for task 2 scheduled at Mon Oct 20 17:06:46 CST 2025 (attempt #1)
+2025-10-20 17:06:46.392  WARN [skytask-scheduler,8eb5eb2f874042e8,67a464e540894ac6] 6916 --- [SkyTask-Worker-2] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: skytask-worker
+2025-10-20 17:06:46.410  WARN [skytask-scheduler,8eb5eb2f874042e8,67a464e540894ac6] 6916 --- [SkyTask-Worker-2] RetryableFeignBlockingLoadBalancerClient : Service instance was not resolved, executing the original request
+2025-10-20 17:06:48.765 ERROR [skytask-scheduler,8eb5eb2f874042e8,67a464e540894ac6] 6916 --- [SkyTask-Worker-2] c.skytask.service.TaskExecutionService   : Failed to dispatch task 2 instance a9c8165d-d5cf-498b-afe2-e4322dc4abb5 to worker: skytask-worker executing POST http://skytask-worker/api/worker/tasks/2/execute
+
+feign.RetryableException: skytask-worker executing POST http://skytask-worker/api/worker/tasks/2/execute
+	at feign.FeignException.errorExecuting(FeignException.java:268) ~[feign-core-11.10.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:131) ~[feign-core-11.10.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:91) ~[feign-core-11.10.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:100) ~[feign-core-11.10.jar:na]
+	at com.sun.proxy.$Proxy211.executeTask(Unknown Source) ~[na:na]
+	at com.skytask.service.TaskExecutionService.dispatchToWorker(TaskExecutionService.java:207) ~[classes/:na]
+	at com.skytask.service.TaskExecutionService.lambda$executeInternal$1(TaskExecutionService.java:157) ~[classes/:na]
+	at org.springframework.cloud.sleuth.instrument.async.TraceRunnable.run(TraceRunnable.java:64) ~[spring-cloud-sleuth-instrumentation-3.1.9.jar:3.1.9]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:830) ~[na:na]
+Caused by: java.net.UnknownHostException: skytask-worker
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:603) ~[na:na]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1248) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1362) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1337) ~[na:na]
+	at feign.Client$Default.convertAndSend(Client.java:208) ~[feign-core-11.10.jar:na]
+	at feign.Client$Default.execute(Client.java:105) ~[feign-core-11.10.jar:na]
+	at org.springframework.cloud.sleuth.instrument.web.client.feign.TracingFeignClient.execute(TracingFeignClient.java:79) ~[spring-cloud-sleuth-instrumentation-3.1.9.jar:3.1.9]
+	at org.springframework.cloud.sleuth.instrument.web.client.feign.LazyTracingFeignClient.execute(LazyTracingFeignClient.java:62) ~[spring-cloud-sleuth-instrumentation-3.1.9.jar:3.1.9]
+	at org.springframework.cloud.openfeign.loadbalancer.LoadBalancerUtils.executeWithLoadBalancerLifecycleProcessing(LoadBalancerUtils.java:57) ~[spring-cloud-openfeign-core-3.1.8.jar:3.1.8]
+	at org.springframework.cloud.openfeign.loadbalancer.RetryableFeignBlockingLoadBalancerClient.lambda$execute$2(RetryableFeignBlockingLoadBalancerClient.java:169) ~[spring-cloud-openfeign-core-3.1.8.jar:3.1.8]
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:329) ~[spring-retry-1.3.4.jar:na]
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:225) ~[spring-retry-1.3.4.jar:na]
+	at org.springframework.cloud.openfeign.loadbalancer.RetryableFeignBlockingLoadBalancerClient.execute(RetryableFeignBlockingLoadBalancerClient.java:115) ~[spring-cloud-openfeign-core-3.1.8.jar:3.1.8]
+	at org.springframework.cloud.sleuth.instrument.web.client.feign.TraceRetryableFeignBlockingLoadBalancerClient.execute(TraceRetryableFeignBlockingLoadBalancerClient.java:79) ~[spring-cloud-sleuth-instrumentation-3.1.9.jar:3.1.9]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:121) ~[feign-core-11.10.jar:na]
+	... 9 common frames omitted
+
+2025-10-20 17:06:48.851  INFO [skytask-scheduler,8eb5eb2f874042e8,67a464e540894ac6] 6916 --- [SkyTask-Worker-2] c.s.scheduler.TaskSchedulerService       : Retry for task 2 scheduled at Mon Oct 20 17:07:48 CST 2025 (attempt #2)
+2025-10-20 17:07:13.391  WARN [skytask-scheduler,8ddaf646b1830dd8,8ddaf646b1830dd8] 6916 --- [scheduling-1] com.skytask.service.NodeService          : Node worker-002 missed heartbeat for 106 seconds, marking offline
+2025-10-20 17:07:13.413  INFO [skytask-scheduler,8ddaf646b1830dd8,8ddaf646b1830dd8] 6916 --- [scheduling-1] com.skytask.service.NodeService          : Migrated 2 shards from offline node worker-002 to [worker-001]
+2025-10-20 17:07:13.413  WARN [skytask-scheduler,8ddaf646b1830dd8,8ddaf646b1830dd8] 6916 --- [scheduling-1] com.skytask.service.NodeService          : Node worker-001 missed heartbeat for 104 seconds, marking offline
+2025-10-20 17:07:13.413  WARN [skytask-scheduler,8ddaf646b1830dd8,8ddaf646b1830dd8] 6916 --- [scheduling-1] com.skytask.service.NodeService          : Unable to migrate shards for worker-001 because no healthy nodes are available
+2025-10-20 17:07:13.555  WARN [skytask-scheduler,,] 6916 --- [Thread-11] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2025-10-20 17:07:13.556  WARN [skytask-scheduler,,] 6916 --- [Thread-2] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2025-10-20 17:07:13.556  WARN [skytask-scheduler,,] 6916 --- [Thread-11] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2025-10-20 17:07:13.565  WARN [skytask-scheduler,,] 6916 --- [Thread-2] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2025-10-20 17:07:13.629  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler schedulerFactoryBean_$_NON_CLUSTERED paused.
+2025-10-20 17:07:13.950  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2025-10-20 17:07:13.985  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2025-10-20 17:07:14.038  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-20 17:07:14.054  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2025-10-20 17:07:14.055  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler schedulerFactoryBean_$_NON_CLUSTERED shutting down.
+2025-10-20 17:07:14.055  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler schedulerFactoryBean_$_NON_CLUSTERED paused.
+2025-10-20 17:07:14.487  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler schedulerFactoryBean_$_NON_CLUSTERED shutdown complete.
+2025-10-20 17:07:14.564  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-20 17:07:14.604  INFO [skytask-scheduler,,] 6916 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-20 17:07:19.682  INFO [skytask-scheduler,,] 10472 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2025-10-20 17:07:20.048  INFO [skytask-scheduler,,] 10472 --- [main] com.skytask.SkyTaskSchedulerApplication  : Starting SkyTaskSchedulerApplication using Java 13.0.2 on LAPTOP-KVAIJT2B with PID 10472 (D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-scheduler\target\classes started by 123 in D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-scheduler)
+2025-10-20 17:07:20.050  INFO [skytask-scheduler,,] 10472 --- [main] com.skytask.SkyTaskSchedulerApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-10-20 17:07:22.241  INFO [skytask-scheduler,,] 10472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-20 17:07:22.245  INFO [skytask-scheduler,,] 10472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-20 17:07:22.772  INFO [skytask-scheduler,,] 10472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 515 ms. Found 6 JPA repository interfaces.
+2025-10-20 17:07:22.792  INFO [skytask-scheduler,,] 10472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-20 17:07:22.793  INFO [skytask-scheduler,,] 10472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-20 17:07:22.827  INFO [skytask-scheduler,,] 10472 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskDependencyRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:07:22.829  INFO [skytask-scheduler,,] 10472 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskInstanceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:07:22.829  INFO [skytask-scheduler,,] 10472 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskParamRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:07:22.830  INFO [skytask-scheduler,,] 10472 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:07:22.832  INFO [skytask-scheduler,,] 10472 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TaskRetryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:07:22.833  INFO [skytask-scheduler,,] 10472 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skytask.repository.TenantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-10-20 17:07:22.834  INFO [skytask-scheduler,,] 10472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2025-10-20 17:07:23.455  INFO [skytask-scheduler,,] 10472 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2dc1cfa1-a385-321b-a0d9-4d167fd0eac7
+2025-10-20 17:07:25.128  INFO [skytask-scheduler,,] 10472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-10-20 17:07:25.148  INFO [skytask-scheduler,,] 10472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-20 17:07:25.149  INFO [skytask-scheduler,,] 10472 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-10-20 17:07:25.506  INFO [skytask-scheduler,,] 10472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-20 17:07:25.507  INFO [skytask-scheduler,,] 10472 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5377 ms
+2025-10-20 17:07:26.851  INFO [skytask-scheduler,,] 10472 --- [main] c.a.cloud.nacos.NacosConfigProperties    : set nacos config namespace 'public' to ''
+2025-10-20 17:07:26.937  INFO [skytask-scheduler,,] 10472 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-10-20 17:07:26.937  INFO [skytask-scheduler,,] 10472 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-10-20 17:07:27.883  INFO [skytask-scheduler,,] 10472 --- [main] org.redisson.Version                     : Redisson 3.24.3
+2025-10-20 17:07:29.027  INFO [skytask-scheduler,,] 10472 --- [redisson-netty-2-6] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for localhost/127.0.0.1:6379
+2025-10-20 17:07:29.150  INFO [skytask-scheduler,,] 10472 --- [redisson-netty-2-20] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for localhost/127.0.0.1:6379
+2025-10-20 17:07:30.118  INFO [skytask-scheduler,,] 10472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-20 17:07:30.379  INFO [skytask-scheduler,,] 10472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-20 17:07:33.270  INFO [skytask-scheduler,,] 10472 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2025-10-20 17:07:33.298  INFO [skytask-scheduler,,] 10472 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-10-20 17:07:33.299  INFO [skytask-scheduler,,] 10472 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2025-10-20 17:07:33.303  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Using db table-based data access locking (synchronization).
+2025-10-20 17:07:33.306  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : JobStoreCMT initialized.
+2025-10-20 17:07:33.308  INFO [skytask-scheduler,,] 10472 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'schedulerFactoryBean' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2025-10-20 17:07:33.308  INFO [skytask-scheduler,,] 10472 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'schedulerFactoryBean' initialized from an externally provided properties instance.
+2025-10-20 17:07:33.309  INFO [skytask-scheduler,,] 10472 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2025-10-20 17:07:33.310  INFO [skytask-scheduler,,] 10472 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: com.skytask.config.QuartzConfig$AutowiringSpringBeanJobFactory@49616310
+2025-10-20 17:07:33.660  INFO [skytask-scheduler,,] 10472 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-20 17:07:33.760  INFO [skytask-scheduler,,] 10472 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-10-20 17:07:34.041  INFO [skytask-scheduler,,] 10472 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-10-20 17:07:34.230  INFO [skytask-scheduler,,] 10472 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-10-20 17:07:35.782  INFO [skytask-scheduler,,] 10472 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-10-20 17:07:35.800  INFO [skytask-scheduler,,] 10472 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-20 17:07:37.232  INFO [skytask-scheduler,,] 10472 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'skytask-worker' URL not provided. Will try picking an instance via load-balancing.
+2025-10-20 17:07:37.825  INFO [skytask-scheduler,,] 10472 --- [main] c.s.scheduler.TaskSchedulerService       : Task 2 scheduled with trigger DEFAULT.task-trigger-2
+2025-10-20 17:07:37.897  INFO [skytask-scheduler,,] 10472 --- [main] c.s.scheduler.TaskSchedulerService       : Task 3 scheduled with trigger DEFAULT.task-trigger-3
+2025-10-20 17:07:37.945  INFO [skytask-scheduler,,] 10472 --- [main] c.s.scheduler.TaskSchedulerService       : Task 4 scheduled with trigger DEFAULT.task-trigger-4
+2025-10-20 17:07:38.407  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@579847d7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@156b3428, org.springframework.security.web.context.SecurityContextPersistenceFilter@73cf33bd, org.springframework.security.web.header.HeaderWriterFilter@be694c0, org.springframework.web.filter.CorsFilter@67020d60, org.springframework.security.web.authentication.logout.LogoutFilter@685271b1, com.skytask.security.TenantAuthenticationFilter@2919aff3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b6f196c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f878eed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@475534d1, org.springframework.security.web.session.SessionManagementFilter@7c4d74da, org.springframework.security.web.access.ExceptionTranslationFilter@537231c1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@33c28f0d]
+2025-10-20 17:07:38.716  INFO [skytask-scheduler,,] 10472 --- [main] c.a.c.sentinel.SentinelWebMvcConfigurer  : [Sentinel Starter] register SentinelWebInterceptor with urlPatterns: [/**].
+2025-10-20 17:07:41.117  WARN [skytask-scheduler,,] 10472 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-10-20 17:07:41.234  INFO [skytask-scheduler,,] 10472 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-10-20 17:07:41.519  INFO [skytask-scheduler,,] 10472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-10-20 17:07:41.558  INFO [skytask-scheduler,,] 10472 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-10-20 17:07:41.558  INFO [skytask-scheduler,,] 10472 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-10-20 17:07:43.938  INFO [skytask-scheduler,,] 10472 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP skytask-scheduler 10.194.165.167:8081 register finished
+2025-10-20 17:07:44.301  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2025-10-20 17:07:44.310  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Freed 0 triggers from 'acquired' / 'blocked' state.
+2025-10-20 17:07:44.316  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2025-10-20 17:07:44.316  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Recovery complete.
+2025-10-20 17:07:44.318  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Removed 0 'complete' triggers.
+2025-10-20 17:07:44.319  INFO [skytask-scheduler,,] 10472 --- [main] o.s.s.quartz.LocalDataSourceJobStore     : Removed 0 stale fired job entries.
+2025-10-20 17:07:44.321  INFO [skytask-scheduler,,] 10472 --- [main] org.quartz.core.QuartzScheduler          : Scheduler schedulerFactoryBean_$_NON_CLUSTERED started.
+2025-10-20 17:07:44.390  INFO [skytask-scheduler,,] 10472 --- [main] com.skytask.SkyTaskSchedulerApplication  : Started SkyTaskSchedulerApplication in 26.109 seconds (JVM running for 27.351)
+2025-10-20 17:07:44.433  INFO [skytask-scheduler,,] 10472 --- [main] com.skytask.bootstrap.DataInitializer    : Skip demo data seeding (task table already contains records)
+2025-10-20 17:07:45.861  INFO [skytask-scheduler,,] 10472 --- [RMI TCP Connection(4)-10.194.165.167] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-20 17:07:45.863  INFO [skytask-scheduler,,] 10472 --- [RMI TCP Connection(4)-10.194.165.167] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-20 17:07:45.868  INFO [skytask-scheduler,,] 10472 --- [RMI TCP Connection(4)-10.194.165.167] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2025-10-20 17:07:46.114  WARN [skytask-scheduler,,] 10472 --- [RMI TCP Connection(5)-10.194.165.167] o.s.b.actuate.mail.MailHealthIndicator   : Mail health check failed
+
+javax.mail.AuthenticationFailedException: failed to connect, no password specified?
+	at javax.mail.Service.connect(Service.java:376) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518) ~[spring-context-support-5.3.31.jar:5.3.31]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:398) ~[spring-context-support-5.3.31.jar:5.3.31]
+	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:52) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:94) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:88) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:78) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.31.jar:5.3.31]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97) ~[spring-boot-actuator-2.7.18.jar:2.7.18]
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809) ~[na:na]
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827) ~[na:na]
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor47.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:691) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:391) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:830) ~[na:na]
+
+2025-10-20 17:07:47.741  INFO [skytask-scheduler,e2efc53d05ac9464,f7b79ea3c274f608] 10472 --- [http-nio-8081-exec-2] c.s.scheduler.TaskSchedulerService       : Retry for task 2 scheduled at Mon Oct 20 17:08:47 CST 2025 (attempt #1)
+2025-10-20 17:07:47.839  INFO [skytask-scheduler,e2efc53d05ac9464,ccd253f8c4998260] 10472 --- [SkyTask-Worker-1] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 5a24b18c-285d-4d6d-942a-8b0e03ff5a64 attempt 0 -> worker ack FAILED
+2025-10-20 17:08:49.276  INFO [skytask-scheduler,d058d9ce35f93e74,f5017883c5acaae1] 10472 --- [SkyTask-Worker-2] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 5a337a95-3c1f-4f13-a723-fbf07057a458 attempt 1 -> worker ack SUCCESS
+2025-10-20 17:09:14.467  WARN [skytask-scheduler,7b8e51bb1e2d7494,7b8e51bb1e2d7494] 10472 --- [scheduling-1] com.skytask.service.NodeService          : Node worker-002 missed heartbeat for 103 seconds, marking offline
+2025-10-20 17:09:14.485  INFO [skytask-scheduler,7b8e51bb1e2d7494,7b8e51bb1e2d7494] 10472 --- [scheduling-1] com.skytask.service.NodeService          : Migrated 2 shards from offline node worker-002 to [worker-001]
+2025-10-20 17:09:14.486  WARN [skytask-scheduler,7b8e51bb1e2d7494,7b8e51bb1e2d7494] 10472 --- [scheduling-1] com.skytask.service.NodeService          : Node worker-001 missed heartbeat for 101 seconds, marking offline
+2025-10-20 17:09:14.486  WARN [skytask-scheduler,7b8e51bb1e2d7494,7b8e51bb1e2d7494] 10472 --- [scheduling-1] com.skytask.service.NodeService          : Unable to migrate shards for worker-001 because no healthy nodes are available
+2025-10-20 17:12:39.008  INFO [skytask-scheduler,ec403286368f8470,bc2c937771e03d7b] 10472 --- [SkyTask-Worker-3] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance ce997edb-f790-4f9f-98b0-625086e50d46 attempt 0 -> worker ack SUCCESS
+2025-10-20 17:17:39.511  INFO [skytask-scheduler,3fcff786b29cbb42,f8cb7785d554a41c] 10472 --- [SkyTask-Worker-4] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 53387fc8-73c7-4503-8952-0f287fca36e7 attempt 0 -> worker ack SUCCESS
+2025-10-20 17:22:38.811  INFO [skytask-scheduler,1c754cfa67b7f344,80c91a170f5faa6c] 10472 --- [SkyTask-Worker-5] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 7ed3bb9c-178d-451f-b55c-e2f7d062fcc3 attempt 0 -> worker ack SUCCESS
+2025-10-20 17:27:39.347  INFO [skytask-scheduler,9ff2a5dc4739b68b,e8dc307cff112d20] 10472 --- [SkyTask-Worker-6] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance cabadde2-72c5-4969-aa03-e1a730adb74f attempt 0 -> worker ack SUCCESS
+2025-10-20 17:30:01.210  INFO [skytask-scheduler,18d2d561f9038fcd,133477b18cbfc209] 10472 --- [SkyTask-Worker-7] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance 2120ebad-774f-4357-a4cb-36494b6e5686 attempt 0 -> worker ack SUCCESS
+2025-10-20 17:32:39.072  INFO [skytask-scheduler,7d97509a25cfc718,124e1eefe7606d8d] 10472 --- [SkyTask-Worker-8] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 2215a983-5977-45cb-92cd-aa1e99db231f attempt 0 -> worker ack SUCCESS
+2025-10-20 17:37:38.946  INFO [skytask-scheduler,22b34c2fd59aa82a,bef7c428f7c42ccf] 10472 --- [SkyTask-Worker-9] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance ae5a0dba-8817-4157-87ef-1bb498ce1363 attempt 0 -> worker ack SUCCESS
+2025-10-20 17:42:38.934  INFO [skytask-scheduler,07d4e4022f89ea3a,eb08fe1ebc04815c] 10472 --- [SkyTask-Worker-10] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance e5549535-907e-434f-8c2f-942b0c9af3b1 attempt 0 -> worker ack SUCCESS
+2025-10-20 17:47:38.844  INFO [skytask-scheduler,6278a1032bd8e1ca,4b01cbe2b021b55d] 10472 --- [SkyTask-Worker-11] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 825e40a4-78fe-44d9-b46d-d34c6510a07b attempt 0 -> worker ack SUCCESS
+2025-10-20 17:52:39.104  INFO [skytask-scheduler,2ad3c27096f41936,9b6e0d08bdb49258] 10472 --- [SkyTask-Worker-12] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance f1a86ba0-49a4-4f30-a05b-323391a640ac attempt 0 -> worker ack SUCCESS
+2025-10-20 17:57:38.646  INFO [skytask-scheduler,6a0ad2a62e98e663,ff6b50e835e35edb] 10472 --- [SkyTask-Worker-13] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 04607c05-3313-4e45-8307-34024b28b92b attempt 0 -> worker ack SUCCESS
+2025-10-20 18:00:01.112  INFO [skytask-scheduler,9988b6c12f268408,ca815e576edcf554] 10472 --- [SkyTask-Worker-14] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance 0d56ed90-5a86-4db4-9512-dc4802cf1bcb attempt 0 -> worker ack SUCCESS
+2025-10-20 18:02:38.948  INFO [skytask-scheduler,a30a4e1be4af63e3,bcd95aae3730710c] 10472 --- [SkyTask-Worker-15] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 65cd5f5f-1caa-4341-827e-8ad633b4ae83 attempt 0 -> worker ack SUCCESS
+2025-10-20 18:07:38.917  INFO [skytask-scheduler,5e72ff89af44bf9c,f772f12237e6a4cb] 10472 --- [SkyTask-Worker-16] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 8a92e6bb-ff61-4211-aa7c-f1ee102bc65e attempt 0 -> worker ack SUCCESS
+2025-10-20 18:12:38.774  INFO [skytask-scheduler,a4c07077fdfe1379,ce3adcbaf1f5aaa3] 10472 --- [SkyTask-Worker-17] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance b4a3c0de-b525-4248-ac8f-fd69e8142b73 attempt 0 -> worker ack SUCCESS
+2025-10-20 18:17:38.786  INFO [skytask-scheduler,31cc5f3489255731,d953b43cbad833b8] 10472 --- [SkyTask-Worker-18] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 3119ad7e-2efa-4535-9e84-3703e65906e4 attempt 0 -> worker ack SUCCESS
+2025-10-20 18:22:38.716  INFO [skytask-scheduler,fdf72ace9787c129,1e914361290b8e4a] 10472 --- [SkyTask-Worker-19] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 7525b1d2-540a-4a3d-8da9-0475742ace3f attempt 0 -> worker ack SUCCESS
+2025-10-20 18:27:38.764  INFO [skytask-scheduler,0e5c8b7e4f91b84b,c88c82c5c814beb0] 10472 --- [SkyTask-Worker-20] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 032562cf-8a2b-489c-82c9-b57f85e50783 attempt 0 -> worker ack SUCCESS
+2025-10-20 18:30:01.115  INFO [skytask-scheduler,b26e89cee375080f,06d0a8ed4c5a215d] 10472 --- [SkyTask-Worker-21] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance 5222c653-87f8-4a96-93b3-77425588d163 attempt 0 -> worker ack SUCCESS
+2025-10-20 18:32:38.804  INFO [skytask-scheduler,42817cd253d58bf4,650b9339252fe6a8] 10472 --- [SkyTask-Worker-22] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 79bc0e21-b624-4e16-ba2d-b30d0c089bf4 attempt 0 -> worker ack SUCCESS
+2025-10-20 18:37:38.950  INFO [skytask-scheduler,51b87b42b6b87088,83672eb3d00e6d8e] 10472 --- [SkyTask-Worker-23] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance f7e54ac9-a49d-4e35-a2c7-c93ce96f7160 attempt 0 -> worker ack SUCCESS
+2025-10-20 18:42:39.018  INFO [skytask-scheduler,f832f72fe60bb6bf,4971067322a8c360] 10472 --- [http-nio-8081-exec-10] c.s.scheduler.TaskSchedulerService       : Retry for task 2 scheduled at Mon Oct 20 18:43:38 CST 2025 (attempt #1)
+2025-10-20 18:42:39.045  INFO [skytask-scheduler,f832f72fe60bb6bf,67bb9ab541f7874d] 10472 --- [SkyTask-Worker-24] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 3036d61b-6204-4001-8784-fae3f174a255 attempt 0 -> worker ack FAILED
+2025-10-20 18:43:40.113  INFO [skytask-scheduler,18aebc2aa2776015,9e00563d4ca299bc] 10472 --- [SkyTask-Worker-25] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 2b08270e-8fe7-456e-9121-37ab2ef25efa attempt 1 -> worker ack SUCCESS
+2025-10-20 18:47:38.698  INFO [skytask-scheduler,d58362e02c36347e,0d4c8abf2bcb8f7e] 10472 --- [SkyTask-Worker-26] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance ec93c85d-0371-4c76-b89d-0b4bb6446fe2 attempt 0 -> worker ack SUCCESS
+2025-10-20 18:52:39.033  INFO [skytask-scheduler,f1745a9d8706cf01,df869fec9e373f65] 10472 --- [SkyTask-Worker-27] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance a0580105-4631-4d9a-a7aa-5f33e2af2d5f attempt 0 -> worker ack SUCCESS
+2025-10-20 18:57:39.077  INFO [skytask-scheduler,dfcc42fa93c87c49,de5bc1ade613bd61] 10472 --- [SkyTask-Worker-28] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 70fadc4e-be96-492a-8176-3baf40953029 attempt 0 -> worker ack SUCCESS
+2025-10-20 19:00:01.066  INFO [skytask-scheduler,5ffa3f8e6fe6441e,3bf487b7c0a2b817] 10472 --- [SkyTask-Worker-29] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance b458e76f-7900-4147-a27b-b97f2675850c attempt 0 -> worker ack SUCCESS
+2025-10-20 19:02:38.819  INFO [skytask-scheduler,c391b88c9e04caec,9bcd629a6a876c91] 10472 --- [SkyTask-Worker-30] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance f69e05fe-7279-47c5-b3d4-3a4881963d10 attempt 0 -> worker ack SUCCESS
+2025-10-20 19:07:39.001  INFO [skytask-scheduler,ada4e70774902541,3d7a35ce1ab14853] 10472 --- [SkyTask-Worker-31] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 4d5e0ac8-4803-4ef1-837b-f7ccd7d6bbe1 attempt 0 -> worker ack SUCCESS
+2025-10-20 19:12:38.695  INFO [skytask-scheduler,7011e609e5682878,a22d3339f2a7a191] 10472 --- [SkyTask-Worker-32] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 3b1c3ccc-4d3e-4e4d-b9c9-613128b252cc attempt 0 -> worker ack SUCCESS
+2025-10-20 19:17:38.610  INFO [skytask-scheduler,6e29fa2939e21dfa,b33833fc186dd9f5] 10472 --- [SkyTask-Worker-33] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 0b383f44-90d9-4ab8-98a5-7b045f711321 attempt 0 -> worker ack SUCCESS
+2025-10-20 19:22:38.842  INFO [skytask-scheduler,ecf57fc073d847d9,c6be54fc07c58fcb] 10472 --- [SkyTask-Worker-34] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 54042532-7ebb-4761-a85c-4317179fcf34 attempt 0 -> worker ack SUCCESS
+2025-10-20 19:27:38.689  INFO [skytask-scheduler,ed172c2ef92533db,13e2b29b603f45ba] 10472 --- [http-nio-8081-exec-4] c.s.scheduler.TaskSchedulerService       : Retry for task 2 scheduled at Mon Oct 20 19:28:38 CST 2025 (attempt #1)
+2025-10-20 19:27:38.704  INFO [skytask-scheduler,ed172c2ef92533db,388da102ee39d722] 10472 --- [SkyTask-Worker-35] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance fe6afefa-49fb-4754-ae35-4a6cce5db007 attempt 0 -> worker ack FAILED
+2025-10-20 19:28:39.837  INFO [skytask-scheduler,3e1df507a7ed89e1,bc5f317235a6c7cb] 10472 --- [SkyTask-Worker-36] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance ec99e3c4-80f4-4b2a-bb0b-93aac423b61b attempt 1 -> worker ack SUCCESS
+2025-10-20 19:30:00.951  INFO [skytask-scheduler,9f00ae64d88157bf,07f78a673fcc9f76] 10472 --- [http-nio-8081-exec-10] c.s.scheduler.TaskSchedulerService       : Retry for task 3 scheduled at Mon Oct 20 19:31:30 CST 2025 (attempt #1)
+2025-10-20 19:30:00.963  INFO [skytask-scheduler,9f00ae64d88157bf,bb29a9c4b32e709c] 10472 --- [SkyTask-Worker-37] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance 2c5f5805-fe9f-4e7a-a7bf-6fdc794bfbf7 attempt 0 -> worker ack FAILED
+2025-10-20 19:31:31.864  INFO [skytask-scheduler,836b0c5d85777b76,bdd423b32fe64745] 10472 --- [SkyTask-Worker-38] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance fe6089c0-02a6-48ea-9abb-d8de85d7199c attempt 1 -> worker ack SUCCESS
+2025-10-20 19:32:38.779  INFO [skytask-scheduler,d5457f2b4ca8f617,5b8163f08d703b69] 10472 --- [SkyTask-Worker-39] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 246f446b-e5b3-4a22-a3f4-d8f82cc7b373 attempt 0 -> worker ack SUCCESS
+2025-10-20 19:37:38.667  INFO [skytask-scheduler,f65f6492d4f32110,797a944ff0ca3004] 10472 --- [SkyTask-Worker-40] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 18c39c8e-baee-4932-af7b-fc7540248c5c attempt 0 -> worker ack SUCCESS
+2025-10-20 19:42:39.310  INFO [skytask-scheduler,720b581da618f000,44b2a81eaa295026] 10472 --- [SkyTask-Worker-41] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance c03529af-bdf5-438a-bbd2-7049de86f93f attempt 0 -> worker ack SUCCESS
+2025-10-20 19:47:38.926  INFO [skytask-scheduler,46d2eef8727d6eea,cfdee81d55406794] 10472 --- [SkyTask-Worker-42] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 69812a2a-e92f-489e-97bf-67e94f90a70e attempt 0 -> worker ack SUCCESS
+2025-10-20 19:52:39.402  INFO [skytask-scheduler,cdbba1352083268e,35c1fc3ae8236c0e] 10472 --- [SkyTask-Worker-43] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance fd8d2c08-f914-4507-a692-577caf950834 attempt 0 -> worker ack SUCCESS
+2025-10-20 19:57:38.871  INFO [skytask-scheduler,0492504a431ba29f,01a72be7eafd8f7f] 10472 --- [http-nio-8081-exec-7] c.s.scheduler.TaskSchedulerService       : Retry for task 2 scheduled at Mon Oct 20 19:58:38 CST 2025 (attempt #1)
+2025-10-20 19:57:38.891  INFO [skytask-scheduler,0492504a431ba29f,3b2aa4bb17d93a23] 10472 --- [SkyTask-Worker-44] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 2718beba-6bcd-4f80-9984-cff5ba709983 attempt 0 -> worker ack FAILED
+2025-10-20 19:58:40.091  INFO [skytask-scheduler,cc9b763225f92ad3,0398fccaa3260907] 10472 --- [SkyTask-Worker-45] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance f5076362-a285-4ff5-aefc-1c2cb0881c78 attempt 1 -> worker ack SUCCESS
+2025-10-20 20:00:01.208  INFO [skytask-scheduler,ae5a7a35960aab72,ae3c5aed66b43f66] 10472 --- [SkyTask-Worker-46] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance 0d309209-f728-404d-a124-57f143dac3f4 attempt 0 -> worker ack SUCCESS
+2025-10-20 20:02:38.801  INFO [skytask-scheduler,72d6d492d7e6ab2a,12e953b6fee1343d] 10472 --- [SkyTask-Worker-47] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 9608ef05-14d9-4116-a52d-f33a13524a33 attempt 0 -> worker ack SUCCESS
+2025-10-20 20:07:38.891  INFO [skytask-scheduler,d192ec6f78132be1,df9713e8708e6653] 10472 --- [SkyTask-Worker-48] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 70ffc657-c26c-429d-89f3-d2b7874377d8 attempt 0 -> worker ack SUCCESS
+2025-10-20 20:12:38.846  INFO [skytask-scheduler,c8a4082db809a6a1,49a9eb923be0f7d6] 10472 --- [SkyTask-Worker-49] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance b2c01d78-52aa-4f74-bfa1-5cf752956a80 attempt 0 -> worker ack SUCCESS
+2025-10-20 20:17:39.243  INFO [skytask-scheduler,2b8c5f864088ba41,63a8bd4033ae9493] 10472 --- [SkyTask-Worker-50] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance c6c9377e-3169-4e1f-bd28-00dadaedc1d2 attempt 0 -> worker ack SUCCESS
+2025-10-20 20:22:38.997  INFO [skytask-scheduler,5b866c624316c89b,b65ecaefcf9b38da] 10472 --- [http-nio-8081-exec-4] c.s.scheduler.TaskSchedulerService       : Retry for task 2 scheduled at Mon Oct 20 20:23:38 CST 2025 (attempt #1)
+2025-10-20 20:22:39.028  INFO [skytask-scheduler,5b866c624316c89b,026969accb6c3827] 10472 --- [SkyTask-Worker-51] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 462b1000-4b10-4e92-ad26-487a921d98e6 attempt 0 -> worker ack FAILED
+2025-10-20 20:23:40.053  INFO [skytask-scheduler,4a72f3538d1b2843,d009a1a243e6140b] 10472 --- [SkyTask-Worker-52] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 9210c909-1999-4e76-b776-cc071de56f86 attempt 1 -> worker ack SUCCESS
+2025-10-20 20:27:38.840  INFO [skytask-scheduler,b6a4c9ce2255ec18,c9eb2d13704b2437] 10472 --- [http-nio-8081-exec-10] c.s.scheduler.TaskSchedulerService       : Retry for task 2 scheduled at Mon Oct 20 20:28:38 CST 2025 (attempt #1)
+2025-10-20 20:27:38.870  INFO [skytask-scheduler,b6a4c9ce2255ec18,d5f678da7a3b126c] 10472 --- [SkyTask-Worker-53] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance f15bdbff-d7ac-4332-8a4f-58cff6996565 attempt 0 -> worker ack FAILED
+2025-10-20 20:28:39.987  INFO [skytask-scheduler,dca41be033141e2b,7f0c79151473b396] 10472 --- [SkyTask-Worker-54] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance e59aad76-cbad-4ab2-aa05-a3bdf173789a attempt 1 -> worker ack SUCCESS
+2025-10-20 20:30:00.927  INFO [skytask-scheduler,72d2575cae0b37c2,fa8391cc80027c88] 10472 --- [SkyTask-Worker-55] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance b3eedd8b-6e66-45bd-b0b6-abbc4e81f066 attempt 0 -> worker ack SUCCESS
+2025-10-20 20:32:38.748  INFO [skytask-scheduler,38f88112071be20f,7ed8cbdcfef33181] 10472 --- [SkyTask-Worker-56] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 096e939f-200c-4c5b-86b4-b2df1f7673ae attempt 0 -> worker ack SUCCESS
+2025-10-20 20:37:39.378  INFO [skytask-scheduler,cd09e07a0f055587,f00aaafb563c7eb1] 10472 --- [SkyTask-Worker-57] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance deaa28a3-11a1-4ae0-b5ba-c43bf73a90c9 attempt 0 -> worker ack SUCCESS
+2025-10-20 20:42:39.549  INFO [skytask-scheduler,9f8b24bb8f94033c,90ae4f923f357f89] 10472 --- [SkyTask-Worker-58] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 2b204860-8ee0-4cb0-9dd0-7b6a284d0dae attempt 0 -> worker ack SUCCESS
+2025-10-20 20:47:39.421  INFO [skytask-scheduler,f94224ac030956f5,73f11d9c6be312ad] 10472 --- [SkyTask-Worker-59] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 4dd5c584-2692-4451-b6ef-adc264158d8e attempt 0 -> worker ack SUCCESS
+2025-10-20 20:52:40.760  INFO [skytask-scheduler,599b12f2c29afd51,747867c9e306ced9] 10472 --- [SkyTask-Worker-60] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 36c74c9c-0627-4f62-a80a-ba4dc082f7c1 attempt 0 -> worker ack SUCCESS
+2025-10-20 20:57:41.167  INFO [skytask-scheduler,0a02ea4a7db4d748,b6d9beb492ea2cd1] 10472 --- [SkyTask-Worker-61] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 6928e3ce-4bd6-4e6b-bbe7-4c56b759f439 attempt 0 -> worker ack SUCCESS
+2025-10-20 21:00:03.704  INFO [skytask-scheduler,7227c80fe263b28f,3015063e30648459] 10472 --- [SkyTask-Worker-62] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance 5c6a218b-f839-495d-a0c4-d5c72dc7a4a5 attempt 0 -> worker ack SUCCESS
+2025-10-20 21:02:43.040  INFO [skytask-scheduler,59fe74517c686223,21ebdad5e6cd0331] 10472 --- [SkyTask-Worker-63] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 363b4bd4-f498-495c-aeef-64c049c7b7d9 attempt 0 -> worker ack SUCCESS
+2025-10-20 21:07:39.687  INFO [skytask-scheduler,c8b1c0f510c4d502,0525e29fb95ba1ff] 10472 --- [SkyTask-Worker-64] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance e32a611f-31a0-49d8-b2cc-64a75d54101d attempt 0 -> worker ack SUCCESS
+2025-10-20 21:12:39.255  INFO [skytask-scheduler,4ccba393f5a41017,d47a2d964aa89d6b] 10472 --- [SkyTask-Worker-65] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 259ad72d-2e11-492e-abd8-2333c37c2626 attempt 0 -> worker ack SUCCESS
+2025-10-20 21:15:01.056  INFO [skytask-scheduler,a1934f99475deb5e,e5e118b6d6283a50] 10472 --- [SkyTask-Worker-66] c.skytask.service.TaskExecutionService   : Dispatch task 4 instance 18924555-9e43-451c-8322-ed5d84cb389c attempt 0 -> worker ack SUCCESS
+2025-10-20 21:17:38.902  INFO [skytask-scheduler,4cf1facfdcc9a7bd,ae22dec0569fcde3] 10472 --- [SkyTask-Worker-67] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 1474ca43-f656-4386-bd8d-14165be34c9b attempt 0 -> worker ack SUCCESS
+2025-10-20 21:22:40.067  INFO [skytask-scheduler,276fd60185cef69d,05e907dbdcf50e5c] 10472 --- [SkyTask-Worker-68] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 19d5b7c2-4ea1-4897-ace6-6f0bd7327c5e attempt 0 -> worker ack SUCCESS
+2025-10-20 21:27:39.227  INFO [skytask-scheduler,e08f8c114754dff5,a7b02e7bc20f51c6] 10472 --- [SkyTask-Worker-69] c.skytask.service.TaskExecutionService   : Dispatch task 2 instance 527febf7-3fa8-4ca0-9bde-598469915d77 attempt 0 -> worker ack SUCCESS
+2025-10-20 21:30:01.757  INFO [skytask-scheduler,690ef2e9becd28d8,2e36edb2f18f3dc9] 10472 --- [SkyTask-Worker-70] c.skytask.service.TaskExecutionService   : Dispatch task 3 instance 8d88c9c2-979c-4d42-a959-3a12cae2cb00 attempt 0 -> worker ack SUCCESS

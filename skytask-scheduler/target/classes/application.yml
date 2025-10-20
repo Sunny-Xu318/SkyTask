@@ -1,0 +1,154 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: skytask-scheduler
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/skytask?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: xuliyang010318
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 0
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.format_sql: true
+      hibernate.show_sql: false
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+      hibernate.jdbc.time_zone: Asia/Shanghai
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: SkyTaskScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: true
+            misfireThreshold: 60000
+          threadPool:
+            threadCount: 15
+  security:
+    user:
+      name: skytask
+      password: '{noop}skytask' # TODO replace with secure credentials / integrate with JWT service
+  cloud:
+    discovery:
+      client:
+        simple:
+          enabled: false
+    netflix:
+      eureka:
+        client:
+          enabled: false
+    nacos:
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_DISCOVERY_GROUP:DEFAULT_GROUP}
+        username: ${NACOS_USERNAME:}
+        password: ${NACOS_PASSWORD:}
+      config:
+        enabled: ${NACOS_CONFIG_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_CONFIG_GROUP:DEFAULT_GROUP}
+        file-extension: yaml
+        username: ${NACOS_USERNAME:}
+        password: ${NACOS_PASSWORD:}
+        import-check:
+          enabled: false
+    sentinel:
+      enabled: ${SENTINEL_ENABLED:true}
+      transport:
+        dashboard: ${SENTINEL_DASHBOARD:http://localhost:8858}
+        port: ${SENTINEL_CLIENT_PORT:8719}
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    properties:
+      security.protocol: ${KAFKA_SECURITY_PROTOCOL:}
+      sasl.mechanism: ${KAFKA_SASL_MECHANISM:}
+  sleuth:
+    propagation:
+      type: B3
+    baggage:
+      remote-fields: X-SkyTask-Tenant,X-SkyTask-User
+      correlation-fields: X-SkyTask-Tenant
+  zipkin:
+    base-url: ${ZIPKIN_BASE_URL:http://localhost:9411}
+    enabled: ${ZIPKIN_ENABLED:false}
+  mail:
+    host: ${SPRING_MAIL_HOST:}
+    port: ${SPRING_MAIL_PORT:587}
+    username: ${SPRING_MAIL_USERNAME:}
+    password: ${SPRING_MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  file:
+    name: logs/skytask.log
+  level:
+    root: INFO
+
+# TODO: integrate with Nacos/Config server when backend services are connected.
+skytask:
+  auth:
+    jwt-secret: BS1/FyMut06Qwwyi5n8Rr5hdB5k5H3LVvdzEWlMv2/w=
+    token-ttl-minutes: 60
+  metrics:
+    sample-data-enabled: true
+  data:
+    init-enabled: true
+  scheduler:
+    retry:
+      default-policy: EXP_BACKOFF
+      max-attempts: 3
+      base-backoff-ms: 60000
+      timeout-seconds: 300
+    alert:
+      failure-rate-threshold: 30
+      auto-degrade-min-samples: 10
+      notify-channels: EMAIL
+    alerting:
+      email-recipients:
+        - ops@skytask.local
+      escalation-cooldown-minutes: 10
+    nodes:
+      heartbeat-timeout-seconds: 90
+      health-check-interval-ms: 30000

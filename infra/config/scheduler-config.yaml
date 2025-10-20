@@ -1,0 +1,22 @@
+# Data Id: skytask-scheduler.yaml
+# Group: DEFAULT_GROUP
+# Namespace: public (可根据需要调整)
+skytask:
+  scheduler:
+    retry:
+      default-policy: EXP_BACKOFF
+      max-attempts: 5
+      base-backoff-ms: 45000
+      timeout-seconds: 240
+    alert:
+      failure-rate-threshold: 40
+      auto-degrade-min-samples: 12
+      notify-channels: EMAIL
+      alerting:
+        email-recipients:
+          - ops@example.com
+          - sre@example.com
+        escalation-cooldown-minutes: 15
+      nodes:
+        heartbeat-timeout-seconds: 75
+        health-check-interval-ms: 20000

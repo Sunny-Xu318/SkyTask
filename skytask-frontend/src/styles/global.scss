@@ -1,0 +1,50 @@
+@import './variables.scss';
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.card {
+  background: #fff;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+
+  &--success {
+    background-color: $success-color;
+  }
+
+  &--danger {
+    background-color: $danger-color;
+  }
+
+  &--warning {
+    background-color: $warning-color;
+  }
+
+  &--info {
+    background-color: $primary-color;
+  }
+}

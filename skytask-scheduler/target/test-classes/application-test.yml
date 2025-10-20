@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:skytask;MODE=MYSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+  quartz:
+    job-store-type: memory
+    jdbc:
+      initialize-schema: never
+  redis:
+    host: localhost
+    port: 6379
+
+skytask:
+  data:
+    init-enabled: false

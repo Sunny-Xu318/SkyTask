@@ -1,0 +1,11 @@
+com\skytask\auth\SkyTaskAuthApplication.class
+com\skytask\auth\dto\AuthProfileResponse.class
+com\skytask\auth\dto\AuthTokenResponse$AuthTokenResponseBuilder.class
+com\skytask\auth\dto\AuthProfileResponse$AuthProfileResponseBuilder.class
+com\skytask\auth\controller\AuthController.class
+com\skytask\auth\model\AuthProfile.class
+com\skytask\auth\config\SecurityConfig.class
+com\skytask\auth\dto\AuthLoginRequest.class
+com\skytask\auth\model\AuthProfile$AuthProfileBuilder.class
+com\skytask\auth\service\AuthService.class
+com\skytask\auth\dto\AuthTokenResponse.class

@@ -1,0 +1,75 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: skytask-gateway
+  config:
+    import: optional:nacos:skytask-gateway.yaml?group=DEFAULT_GROUP
+  cloud:
+    nacos:
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_DISCOVERY_GROUP:DEFAULT_GROUP}
+        username: ${NACOS_USERNAME:}
+        password: ${NACOS_PASSWORD:}
+      config:
+        enabled: ${NACOS_CONFIG_ENABLED:true}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_CONFIG_GROUP:DEFAULT_GROUP}
+        file-extension: yaml
+        username: ${NACOS_USERNAME:}
+        password: ${NACOS_PASSWORD:}
+        import-check:
+          enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+    sentinel:
+      enabled: ${SENTINEL_ENABLED:true}
+      transport:
+        dashboard: ${SENTINEL_DASHBOARD:http://localhost:8858}
+        port: ${SENTINEL_CLIENT_PORT:8719}
+      scg:
+        fallback:
+          mode: response
+          response-status: 429
+          response-body: '{"code":429,"message":"Request blocked by Sentinel"}'
+    netflix:
+      eureka:
+        client:
+          enabled: false
+  sleuth:
+    propagation:
+      type: B3
+    baggage:
+      remote-fields: X-SkyTask-Tenant,X-SkyTask-User
+      correlation-fields: X-SkyTask-Tenant
+  zipkin:
+    base-url: ${ZIPKIN_BASE_URL:http://localhost:9411}
+    enabled: ${ZIPKIN_ENABLED:false}
+
+logging:
+  level:
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway,env,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  endpoint:
+    gateway:
+      enabled: true
+
+skytask:
+  auth:
+    jwt-secret: BS1/FyMut06Qwwyi5n8Rr5hdB5k5H3LVvdzEWlMv2/w=

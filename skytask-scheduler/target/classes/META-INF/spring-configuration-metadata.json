@@ -1,0 +1,102 @@
+{
+  "groups": [
+    {
+      "name": "skytask.scheduler",
+      "type": "com.skytask.config.SchedulerDynamicProperties",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties"
+    },
+    {
+      "name": "skytask.scheduler.alert",
+      "type": "com.skytask.config.SchedulerDynamicProperties$AlertProperties",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties",
+      "sourceMethod": "getAlert()"
+    },
+    {
+      "name": "skytask.scheduler.alerting",
+      "type": "com.skytask.config.SchedulerDynamicProperties$AlertingProperties",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties",
+      "sourceMethod": "getAlerting()"
+    },
+    {
+      "name": "skytask.scheduler.nodes",
+      "type": "com.skytask.config.SchedulerDynamicProperties$NodeProperties",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties",
+      "sourceMethod": "getNodes()"
+    },
+    {
+      "name": "skytask.scheduler.retry",
+      "type": "com.skytask.config.SchedulerDynamicProperties$RetryProperties",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties",
+      "sourceMethod": "getRetry()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "skytask.scheduler.alert.auto-degrade-min-samples",
+      "type": "java.lang.Integer",
+      "description": "自动降级前最少需要采集的样本量",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$AlertProperties"
+    },
+    {
+      "name": "skytask.scheduler.alert.failure-rate-threshold",
+      "type": "java.lang.Integer",
+      "description": "失败率告警阈值（百分比）",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$AlertProperties"
+    },
+    {
+      "name": "skytask.scheduler.alert.notify-channels",
+      "type": "java.util.List<java.lang.String>",
+      "description": "告警通知的通道",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$AlertProperties"
+    },
+    {
+      "name": "skytask.scheduler.alerting.email-recipients",
+      "type": "java.util.List<java.lang.String>",
+      "description": "邮件通知的收件人列表",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$AlertingProperties"
+    },
+    {
+      "name": "skytask.scheduler.alerting.escalation-cooldown-minutes",
+      "type": "java.lang.Integer",
+      "description": "再次触发自动升级的冷静时间（分钟）",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$AlertingProperties"
+    },
+    {
+      "name": "skytask.scheduler.nodes.health-check-interval-ms",
+      "type": "java.lang.Long",
+      "description": "节点健康检查的周期（毫秒）",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$NodeProperties"
+    },
+    {
+      "name": "skytask.scheduler.nodes.heartbeat-timeout-seconds",
+      "type": "java.lang.Integer",
+      "description": "心跳超时时间（秒）",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$NodeProperties"
+    },
+    {
+      "name": "skytask.scheduler.retry.base-backoff-ms",
+      "type": "java.lang.Integer",
+      "description": "基础退避时间（毫秒）",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$RetryProperties"
+    },
+    {
+      "name": "skytask.scheduler.retry.default-policy",
+      "type": "java.lang.String",
+      "description": "默认的重试策略（EXP_BACKOFF \/ FIXED_INTERVAL \/ NONE）",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$RetryProperties"
+    },
+    {
+      "name": "skytask.scheduler.retry.max-attempts",
+      "type": "java.lang.Integer",
+      "description": "最大重试次数",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$RetryProperties"
+    },
+    {
+      "name": "skytask.scheduler.retry.timeout-seconds",
+      "type": "java.lang.Integer",
+      "description": "任务超时时间（秒）",
+      "sourceType": "com.skytask.config.SchedulerDynamicProperties$RetryProperties"
+    }
+  ],
+  "hints": []
+}

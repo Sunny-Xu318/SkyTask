@@ -1,0 +1,8 @@
+D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-auth\src\main\java\com\skytask\auth\SkyTaskAuthApplication.java
+D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-auth\src\main\java\com\skytask\auth\controller\AuthController.java
+D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-auth\src\main\java\com\skytask\auth\model\AuthProfile.java
+D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-auth\src\main\java\com\skytask\auth\dto\AuthProfileResponse.java
+D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-auth\src\main\java\com\skytask\auth\config\SecurityConfig.java
+D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-auth\src\main\java\com\skytask\auth\dto\AuthLoginRequest.java
+D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-auth\src\main\java\com\skytask\auth\dto\AuthTokenResponse.java
+D:\桌面\项目\分布式任务调度系统\SkyTask\skytask-auth\src\main\java\com\skytask\auth\service\AuthService.java
