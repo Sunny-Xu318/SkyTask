@@ -17,6 +17,7 @@ public class TaskInfo {
     private String group;
     private TaskType type;
     private ExecutorType executorType;
+    private String handler;
     private String cronExpr;
     private String timeZone;
     private RouteStrategy routeStrategy;

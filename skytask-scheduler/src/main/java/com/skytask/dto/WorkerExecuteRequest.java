@@ -8,7 +8,9 @@ import lombok.Data;
 @Builder
 public class WorkerExecuteRequest {
 
+    private String taskId;
     private String instanceId;
+    private String tenantCode;
     private String operator;
     private Map<String, Object> parameters;
     private int timeoutSeconds;

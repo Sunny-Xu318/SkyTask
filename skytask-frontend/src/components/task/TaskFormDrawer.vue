@@ -54,6 +54,20 @@
         </el-col>
       </el-row>
 
+      <el-form-item label="处理器标识" prop="handler">
+        <el-input
+          v-model="formState.handler"
+          :placeholder="handlerPlaceholder"
+        >
+          <template #prepend>
+            <el-icon><Link /></el-icon>
+          </template>
+        </el-input>
+        <div style="font-size: 12px; color: #909399; margin-top: 4px;">
+          {{ handlerHint }}
+        </div>
+      </el-form-item>
+
       <el-row :gutter="16" v-if="formState.type === 'CRON'">
         <el-col :span="16">
           <el-form-item label="Cron 表达式" prop="cronExpr">
@@ -166,6 +180,7 @@
 <script setup>
 import { computed, nextTick, reactive, ref, watch } from 'vue';
 import { ElMessage } from 'element-plus';
+import { Link } from '@element-plus/icons-vue';
 
 const props = defineProps({
   visible: {
@@ -203,7 +218,8 @@ const createInitialState = () => ({
   name: '',
   group: '',
   type: 'CRON',
-  executorType: 'GRPC',
+  executorType: 'HTTP',
+  handler: '',
   cronExpr: '',
   timeZone: 'Asia/Shanghai',
   routeStrategy: 'ROUND_ROBIN',
@@ -263,6 +279,8 @@ const rules = {
   group: [{ required: true, message: '请选择任务分组', trigger: 'change' }],
   type: [{ required: true, message: '请选择任务类型', trigger: 'change' }],
   executorType: [{ required: true, message: '请选择执行方式', trigger: 'change' }],
+  routeStrategy: [{ required: true, message: '请选择路由策略', trigger: 'change' }],
+  retryPolicy: [{ required: true, message: '请选择重试策略', trigger: 'change' }],
   cronExpr: [
     {
       validator: (_, value, callback) => {
@@ -277,6 +295,37 @@ const rules = {
   ],
   owner: [{ required: true, message: '请选择负责人', trigger: 'change' }]
 };
+
+// 根据执行方式显示不同的 Handler 提示
+const handlerPlaceholder = computed(() => {
+  switch (formState.executorType) {
+    case 'HTTP':
+      return 'http://your-service:8080/api/tasks/execute';
+    case 'GRPC':
+      return 'your-service:9090';
+    case 'SPRING_BEAN':
+      return 'com.example.task.MyTaskHandler';
+    case 'SHELL':
+      return '/path/to/script.sh';
+    default:
+      return '请输入执行器地址或类名';
+  }
+});
+
+const handlerHint = computed(() => {
+  switch (formState.executorType) {
+    case 'HTTP':
+      return '💡 填写 HTTP 接口地址，例如：http://localhost:8080/api/tasks/sync-data';
+    case 'GRPC':
+      return '💡 填写 gRPC 服务地址，例如：localhost:9090 或服务名';
+    case 'SPRING_BEAN':
+      return '💡 填写 Spring Bean 的类全名，例如：com.example.task.DataSyncTask';
+    case 'SHELL':
+      return '💡 填写 Shell 脚本的绝对路径，例如：/opt/scripts/backup.sh';
+    default:
+      return '';
+  }
+});
 
 function handleClose() {
   emit('update:visible', false);

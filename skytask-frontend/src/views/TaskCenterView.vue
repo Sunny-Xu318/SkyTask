@@ -6,7 +6,7 @@
           <el-form-item>
             <el-input
               v-model="filters.keyword"
-              placeholder="Search task name / owner / tag"
+              placeholder="搜索任务名称 / 负责人 / 标签"
               clearable
               @keyup.enter="handleSearch"
             >
@@ -18,20 +18,20 @@
           <el-form-item>
             <el-select
               v-model="filters.status"
-              placeholder="Task status"
+              placeholder="任务状态"
               clearable
               @change="handleSearch"
             >
-              <el-option label="All" value="ALL" />
-              <el-option label="Enabled" value="ENABLED" />
-              <el-option label="Disabled" value="DISABLED" />
-              <el-option label="Failed Alert" value="FAILED" />
+              <el-option label="全部" value="ALL" />
+              <el-option label="已启用" value="ENABLED" />
+              <el-option label="已禁用" value="DISABLED" />
+              <el-option label="失败告警" value="FAILED" />
             </el-select>
           </el-form-item>
           <el-form-item>
             <el-select
               v-model="filters.owner"
-              placeholder="Owner"
+              placeholder="负责人"
               clearable
               filterable
               @change="handleSearch"
@@ -49,7 +49,7 @@
               v-model="filters.tags"
               multiple
               collapse-tags
-              placeholder="Tags"
+              placeholder="标签"
               @change="handleSearch"
             >
               <el-option
@@ -63,14 +63,14 @@
         </el-form>
       </div>
       <div class="toolbar__right">
-        <el-button v-if="canReadTasks" :icon="Download" @click="exportTasks">Export</el-button>
+        <el-button v-if="canReadTasks" :icon="Download" @click="exportTasks">导出</el-button>
         <el-button
           v-if="canManageTasks"
           type="primary"
           :icon="Plus"
           @click="openCreate"
         >
-          New Task
+          新建任务
         </el-button>
       </div>
     </section>
@@ -97,43 +97,43 @@
         </el-result>
       </div>
       <el-table v-else :data="taskList" height="500" v-loading="loading">
-        <el-table-column label="Task" min-width="220">
+        <el-table-column label="任务" min-width="220">
           <template #default="{ row }">
             <div class="task-name">
               <el-link type="primary" @click="openDetail(row)">{{ row.name }}</el-link>
               <el-tag v-if="row.group" size="small" class="task-name__tag">{{ row.group }}</el-tag>
             </div>
             <div class="task-meta">
-              <span>Last run: {{ row.lastTrigger || '-' }}</span>
-              <span>Last node: {{ row.lastNode || '-' }}</span>
+              <span>最后运行: {{ row.lastTrigger || '-' }}</span>
+              <span>最后节点: {{ row.lastNode || '-' }}</span>
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="Type" width="120">
+        <el-table-column label="类型" width="120">
           <template #default="{ row }">
             <el-tag>{{ formatType(row.type) }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="cronExpr" label="Schedule" width="160" show-overflow-tooltip />
-        <el-table-column label="Owner" width="140">
+        <el-table-column prop="cronExpr" label="调度配置" width="160" show-overflow-tooltip />
+        <el-table-column label="负责人" width="140">
           <template #default="{ row }">
             <el-avatar size="small" class="owner-avatar">{{ getOwnerInitials(row.owner) }}</el-avatar>
             <span>{{ row.owner }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="Status" width="140">
+        <el-table-column label="状态" width="140">
           <template #default="{ row }">
             <StatusTag :status="row.status" />
           </template>
         </el-table-column>
-        <el-table-column label="Alert" width="120">
+        <el-table-column label="告警" width="120">
           <template #default="{ row }">
             <el-tag :type="row.alertEnabled ? 'success' : 'info'" size="small">
-              {{ row.alertEnabled ? 'Enabled' : 'Disabled' }}
+              {{ row.alertEnabled ? '已启用' : '已禁用' }}
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="Actions" width="320" fixed="right">
+        <el-table-column label="操作" width="320" fixed="right">
           <template #default="{ row }">
             <el-button
               v-if="canReadTasks"
@@ -142,7 +142,7 @@
               size="small"
               @click="openExecution(row)"
             >
-              Records
+              记录
             </el-button>
             <el-button
               v-if="canManageTasks"
@@ -151,7 +151,7 @@
               size="small"
               @click="editTask(row)"
             >
-              Edit
+              编辑
             </el-button>
             <el-button
               v-if="canManageTasks"
@@ -160,15 +160,15 @@
               size="small"
               @click="toggleTask(row)"
             >
-              {{ row.status === 'ENABLED' ? 'Disable' : 'Enable' }}
+              {{ row.status === 'ENABLED' ? '禁用' : '启用' }}
             </el-button>
             <el-popconfirm
               v-if="canManageTasks"
-              title="Delete this task?"
+              title="确定删除此任务吗？"
               @confirm="removeTask(row)"
             >
               <template #reference>
-                <el-button link type="danger" size="small">Delete</el-button>
+                <el-button link type="danger" size="small">删除</el-button>
               </template>
             </el-popconfirm>
             <el-button
@@ -178,7 +178,7 @@
               size="small"
               @click="triggerTask(row)"
             >
-              Trigger
+              触发
             </el-button>
           </template>
         </el-table-column>
@@ -189,7 +189,7 @@
     </section>
 
     <section v-else class="card task-center__empty">
-      <el-empty description="You do not have permission to view tasks" />
+      <el-empty description="您没有权限查看任务" />
     </section>
     <div v-if="canReadTasks" class="task-center__pagination">
       <el-pagination
@@ -308,7 +308,7 @@ const ensureReadPermission = (toast = true) => {
     return true;
   }
   if (toast) {
-    ElMessage.warning('You do not have permission to view tasks');
+    ElMessage.warning('您没有权限查看任务');
   }
   return false;
 };
@@ -317,7 +317,7 @@ const ensureManagePermission = () => {
   if (canManageTasks.value) {
     return true;
   }
-  ElMessage.warning('You do not have permission to manage tasks');
+  ElMessage.warning('您没有权限管理任务');
   return false;
 };
 
@@ -325,7 +325,7 @@ const ensureTriggerPermission = () => {
   if (canTriggerTasks.value) {
     return true;
   }
-  ElMessage.warning('You do not have permission to trigger tasks');
+  ElMessage.warning('您没有权限触发任务');
   return false;
 };
 
@@ -494,7 +494,7 @@ const triggerTask = async (row) => {
     return;
   }
   await store.dispatch('tasks/triggerTask', { taskId: row.id, payload: {} });
-  ElMessage.success('Task execution requested');
+  ElMessage.success('任务执行已请求');
 };
 
 const openExecution = async (row) => {
@@ -547,9 +547,9 @@ const exportTasks = () => {
 
 const formatType = (type) => {
   const map = {
-    CRON: 'Cron',
-    ONE_TIME: 'One-time',
-    FIXED_RATE: 'Fixed rate'
+    CRON: 'Cron定时',
+    ONE_TIME: '一次性',
+    FIXED_RATE: '固定频率'
   };
   return map[type] || type;
 };

@@ -3,8 +3,8 @@
     <el-card class="login-card" shadow="always">
       <template #header>
         <div class="login-card__header">
-          <h2>SkyTask Platform</h2>
-          <p>Please enter tenant, username and password to continue.</p>
+          <h2>SkyTask 平台</h2>
+          <p>请输入租户、用户名和密码登录</p>
         </div>
       </template>
 
@@ -15,25 +15,25 @@
         label-width="80px"
         @submit.prevent="handleLogin"
       >
-        <el-form-item label="Tenant" prop="tenantCode">
+        <el-form-item label="租户" prop="tenantCode">
           <el-input
             v-model="loginForm.tenantCode"
-            placeholder="e.g. tenant-alpha"
+            placeholder="例如: tenant-alpha"
             autocomplete="off"
           />
         </el-form-item>
-        <el-form-item label="Username" prop="username">
+        <el-form-item label="用户名" prop="username">
           <el-input
             v-model="loginForm.username"
-            placeholder="Enter username"
+            placeholder="请输入用户名"
             autocomplete="username"
           />
         </el-form-item>
-        <el-form-item label="Password" prop="password">
+        <el-form-item label="密码" prop="password">
           <el-input
             v-model="loginForm.password"
             type="password"
-            placeholder="Enter password"
+            placeholder="请输入密码"
             show-password
             autocomplete="current-password"
             @keyup.enter="handleLogin"
@@ -46,13 +46,13 @@
             :loading="loading"
             @click="handleLogin"
           >
-            {{ loading ? 'Signing in...' : 'Sign In' }}
+            {{ loading ? '登录中...' : '登录' }}
           </el-button>
         </el-form-item>
       </el-form>
 
       <div class="login-card__footer">
-        <p>Demo tenant: tenant-alpha | demo account: ops-admin / admin123</p>
+        <p>演示租户: tenant-alpha | 演示账号: ops-admin / admin123</p>
       </div>
     </el-card>
   </div>
@@ -78,15 +78,15 @@ const loginForm = reactive({
 
 const loginRules = {
   tenantCode: [
-    { required: true, message: 'Please enter tenant code', trigger: 'blur' }
+    { required: true, message: '请输入租户代码', trigger: 'blur' }
   ],
   username: [
-    { required: true, message: 'Please enter username', trigger: 'blur' },
-    { min: 3, max: 32, message: 'Username must be 3-32 characters', trigger: 'blur' }
+    { required: true, message: '请输入用户名', trigger: 'blur' },
+    { min: 3, max: 32, message: '用户名长度为3-32个字符', trigger: 'blur' }
   ],
   password: [
-    { required: true, message: 'Please enter password', trigger: 'blur' },
-    { min: 6, message: 'Password must be at least 6 characters', trigger: 'blur' }
+    { required: true, message: '请输入密码', trigger: 'blur' },
+    { min: 6, message: '密码长度至少6个字符', trigger: 'blur' }
   ]
 };
 
@@ -111,7 +111,7 @@ const handleLogin = async () => {
       password: loginForm.password
     };
     const response = await store.dispatch('auth/login', payload);
-    ElMessage.success(`Welcome back, ${response.displayName || response.username}`);
+    ElMessage.success(`欢迎回来，${response.displayName || response.username}`);
 
     const redirect = route.query.redirect || '/dashboard';
     router.push(redirect);
@@ -119,11 +119,11 @@ const handleLogin = async () => {
     const status = error.response?.status;
     let message = error.response?.data?.message || error.message;
     if (status === 401) {
-      message = 'Incorrect username or password';
+      message = '用户名或密码错误';
     } else if (status === 404) {
-      message = 'Tenant does not exist';
+      message = '租户不存在';
     } else if (!message) {
-      message = 'Sign-in failed, please try again later';
+      message = '登录失败，请稍后重试';
     }
     ElMessage.error(message);
   } finally {

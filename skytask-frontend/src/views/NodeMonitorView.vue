@@ -15,23 +15,23 @@
       </div>
       <div v-else class="summary__grid">
         <div class="summary__item">
-          <span class="summary__label">Total Nodes</span>
+          <span class="summary__label">节点总数</span>
           <span class="summary__value">{{ metrics.totalNodes }}</span>
         </div>
         <div class="summary__item">
-          <span class="summary__label">Online</span>
+          <span class="summary__label">在线</span>
           <span class="summary__value summary__value--success">{{ metrics.onlineNodes }}</span>
         </div>
         <div class="summary__item">
-          <span class="summary__label">Offline</span>
+          <span class="summary__label">离线</span>
           <span class="summary__value summary__value--danger">{{ metrics.offlineNodes }}</span>
         </div>
         <div class="summary__item">
-          <span class="summary__label">Avg CPU</span>
+          <span class="summary__label">平均CPU</span>
           <span class="summary__value">{{ metrics.avgCpu }}%</span>
         </div>
         <div class="summary__item">
-          <span class="summary__label">Avg Memory</span>
+          <span class="summary__label">平均内存</span>
           <span class="summary__value">{{ metrics.avgMemory }}%</span>
         </div>
       </div>
@@ -39,8 +39,8 @@
 
         <section v-if="canViewNodes" class="card node-monitor__table">
       <div class="table__header">
-        <h3>Worker Nodes</h3>
-        <el-button type="primary" size="small" @click="refresh">Refresh</el-button>
+        <h3>工作节点</h3>
+        <el-button type="primary" size="small" @click="refresh">刷新</el-button>
       </div>
       <div v-if="nodesError" class="table__error">
         <el-result
@@ -54,48 +54,48 @@
         </el-result>
       </div>
       <el-table v-else :data="nodes" v-loading="loading" height="520">
-        <el-table-column label="Node" min-width="180">
+        <el-table-column label="节点" min-width="180">
           <template #default="{ row }">
             <div class="node-name">
               <el-tag size="small" effect="plain">{{ row.cluster }}</el-tag>
               <strong>{{ row.name }}</strong>
             </div>
             <div class="node-meta">
-              <span>Host: {{ row.host }}</span>
-              <span>Registered: {{ row.registerTime }}</span>
+              <span>主机: {{ row.host }}</span>
+              <span>注册时间: {{ row.registerTime }}</span>
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="Status" width="120">
+        <el-table-column label="状态" width="120">
           <template #default="{ row }">
             <StatusTag :status="row.status === 'ONLINE' ? 'SUCCESS' : 'FAILED'">
-              {{ row.status === 'ONLINE' ? 'Online' : 'Offline' }}
+              {{ row.status === 'ONLINE' ? '在线' : '离线' }}
             </StatusTag>
           </template>
         </el-table-column>
-        <el-table-column label="Resource" width="240">
+        <el-table-column label="资源" width="240">
           <template #default="{ row }">
             <div class="resource">
               <span>CPU</span>
               <el-progress :percentage="row.cpu" :status="row.cpu > 80 ? 'exception' : 'success'" />
             </div>
             <div class="resource">
-              <span>Memory</span>
+              <span>内存</span>
               <el-progress :percentage="row.memory" :status="row.memory > 80 ? 'exception' : 'warning'" />
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="Runtime" width="220">
+        <el-table-column label="运行时" width="220">
           <template #default="{ row }">
             <div class="metrics">
-              <span>Running: {{ row.runningTasks }}</span>
-              <span>Backlog: {{ row.backlog }}</span>
-              <span>Delay: {{ row.delay }} ms</span>
-              <span>Alert: {{ row.alertLevel }}</span>
+              <span>运行中: {{ row.runningTasks }}</span>
+              <span>积压: {{ row.backlog }}</span>
+              <span>延迟: {{ row.delay }} ms</span>
+              <span>告警: {{ row.alertLevel }}</span>
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="Actions" width="220" fixed="right">
+        <el-table-column label="操作" width="220" fixed="right">
           <template #default="{ row }">
             <el-button
               v-if="canManageNodes"
@@ -104,18 +104,18 @@
               size="small"
               @click="rebalance(row)"
             >
-              Rebalance
+              重新平衡
             </el-button>
             <el-button link type="warning" size="small" @click="openHeartbeat(row)">
-              Heartbeat
+              心跳
             </el-button>
             <el-popconfirm
               v-if="canManageNodes"
-              title="Offline this node?"
+              title="确定下线此节点吗？"
               @confirm="offline(row)"
             >
               <template #reference>
-                <el-button link type="danger" size="small">Offline</el-button>
+                <el-button link type="danger" size="small">下线</el-button>
               </template>
             </el-popconfirm>
           </template>
@@ -127,15 +127,15 @@
     </section>
 
     <section v-else class="card node-monitor__empty">
-      <el-empty description="You do not have permission to view nodes" />
+      <el-empty description="您没有权限查看节点" />
     </section>
 
-    <el-drawer v-model="heartbeatVisible" title="Node Heartbeat" size="30%">
+    <el-drawer v-model="heartbeatVisible" title="节点心跳" size="30%">
       <el-descriptions :column="1" border>
-        <el-descriptions-item label="Node">{{ heartbeatDetail.name }}</el-descriptions-item>
-        <el-descriptions-item label="Latest">{{ heartbeatDetail.latest }}</el-descriptions-item>
-        <el-descriptions-item label="Avg Latency">{{ heartbeatDetail.avgLatency }} ms</el-descriptions-item>
-        <el-descriptions-item label="Last Alert">{{ heartbeatDetail.lastAlert || '-' }}</el-descriptions-item>
+        <el-descriptions-item label="节点">{{ heartbeatDetail.name }}</el-descriptions-item>
+        <el-descriptions-item label="最新">{{ heartbeatDetail.latest }}</el-descriptions-item>
+        <el-descriptions-item label="平均延迟">{{ heartbeatDetail.avgLatency }} ms</el-descriptions-item>
+        <el-descriptions-item label="最后告警">{{ heartbeatDetail.lastAlert || '-' }}</el-descriptions-item>
       </el-descriptions>
       <el-timeline class="heartbeat-timeline">
         <el-timeline-item

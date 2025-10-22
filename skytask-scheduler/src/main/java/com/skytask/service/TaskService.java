@@ -361,7 +361,7 @@ public class TaskService {
         entity.setBizGroup(request.getGroup());
         entity.setDescription(request.getDescription());
         entity.setType(request.getType() != null ? request.getType().name() : TaskType.CRON.name());
-        entity.setHandler(request.getExecutorType() != null ? request.getExecutorType().name() : ExecutorType.GRPC.name());
+        entity.setHandler(StringUtils.hasText(request.getHandler()) ? request.getHandler() : "");
         entity.setCronExpr(request.getCronExpr());
         entity.setTimeZone(StringUtils.hasText(request.getTimeZone()) ? request.getTimeZone() : "Asia/Shanghai");
         entity.setShardCount(1);
@@ -398,6 +398,12 @@ public class TaskService {
         params.add(buildParam(tenantId, taskId, PARAM_IDEMPOTENT_KEY, request.getIdempotentKey()));
         params.add(buildParam(tenantId, taskId, PARAM_ALERT_ENABLED, Boolean.toString(request.isAlertEnabled())));
         params.add(buildParam(tenantId, taskId, PARAM_TIMEOUT, Integer.toString(request.getTimeout())));
+        // 保存 executorType
+        params.add(buildParam(
+                tenantId,
+                taskId,
+                "executorType",
+                request.getExecutorType() != null ? request.getExecutorType().name() : ExecutorType.HTTP.name()));
 
         if (request.getParameters() != null && !request.getParameters().isEmpty()) {
             try {
@@ -479,7 +485,10 @@ public class TaskService {
                 .group(entity.getBizGroup())
                 .description(entity.getDescription())
                 .type(resolveTaskType(entity.getType()))
-                .executorType(resolveExecutorType(entity.getHandler()))
+                .executorType(params.containsKey("executorType") 
+                    ? resolveExecutorType(params.get("executorType"))
+                    : resolveExecutorType(entity.getHandler()))
+                .handler(entity.getHandler())
                 .cronExpr(entity.getCronExpr())
                 .timeZone(entity.getTimeZone())
                 .routeStrategy(resolveRouteStrategy(params.get(PARAM_ROUTE_STRATEGY)))
@@ -624,7 +633,38 @@ public class TaskService {
                 .retry(Optional.ofNullable(entity.getAttempts()).orElse(0))
                 .log(entity.getResult())
                 .traceId(entity.getInstanceId())
+                .parameters(parseResultParameters(entity.getResult()))
                 .build();
+    }
+
+    private Map<String, Object> parseResultParameters(String result) {
+        if (!StringUtils.hasText(result)) {
+            return new HashMap<>();
+        }
+        try {
+            // 尝试解析 JSON 格式的结果
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> resultMap = mapper.readValue(result, Map.class);
+            
+            // 提取参数信息
+            Map<String, Object> parameters = new HashMap<>();
+            if (resultMap.containsKey("parameters")) {
+                Object params = resultMap.get("parameters");
+                if (params instanceof Map) {
+                    parameters.putAll((Map<String, Object>) params);
+                }
+            }
+            
+            // 如果结果本身就是参数格式，直接使用
+            if (parameters.isEmpty() && resultMap.size() > 0) {
+                parameters.putAll(resultMap);
+            }
+            
+            return parameters;
+        } catch (Exception e) {
+            // 如果解析失败，返回空参数
+            return new HashMap<>();
+        }
     }
 
     private TaskStatus mapStatus(String status) {

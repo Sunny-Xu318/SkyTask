@@ -1,5 +1,6 @@
 package com.skytask.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.skytask.client.WorkerClient;
 import com.skytask.config.SchedulerDynamicProperties;
 import com.skytask.dto.WorkerExecuteRequest;
@@ -8,6 +9,9 @@ import com.skytask.entity.TaskEntity;
 import com.skytask.entity.TaskInstanceEntity;
 import com.skytask.entity.TaskRetryEntity;
 import com.skytask.exception.ResourceNotFoundException;
+import com.skytask.executor.TaskExecutor;
+import com.skytask.executor.TaskExecutorFactory;
+import com.skytask.model.ExecutorType;
 import com.skytask.model.RetryPolicy;
 import com.skytask.model.TaskExecutionRecord;
 import com.skytask.model.TaskStatus;
@@ -63,6 +67,7 @@ public class TaskExecutionService {
     private final TenantResolver tenantResolver;
     private final MeterRegistry meterRegistry;
     private final FailureMonitor failureMonitor;
+    private final TaskExecutorFactory taskExecutorFactory;
 
     private Counter executionSuccessCounter;
     private Counter executionFailureCounter;
@@ -197,20 +202,82 @@ public class TaskExecutionService {
                 : tenantResolver.resolveTenantCode(resolvedTenantId);
         try {
             WorkerExecuteRequest request = WorkerExecuteRequest.builder()
+                    .taskId(task.getId().toString())
                     .instanceId(instance.getInstanceId())
+                    .tenantCode(resolvedTenantCode)
                     .operator(operator)
                     .parameters(toWorkerParameters(paramMap))
                     .timeoutSeconds(timeoutSeconds)
                     .attempt(attempt)
                     .build();
-            WorkerExecutionResult response =
-                    workerClient.executeTask(String.valueOf(task.getId()), request, resolvedTenantCode);
+            
+            // 获取执行器类型和 Handler
+            ExecutorType executorType = resolveExecutorType(paramMap.get("executorType"));
+            String handler = task.getHandler();
+            
+            WorkerExecutionResult response;
+            
+            // 根据执行器类型选择执行方式
+            if (executorType != null && executorType != ExecutorType.GRPC && 
+                StringUtils.hasText(handler)) {
+                // 使用新的执行器系统
+                log.info("Dispatching task {} using {} executor to handler: {}", 
+                    task.getId(), executorType, handler);
+                
+                try {
+                    TaskExecutor executor = taskExecutorFactory.getExecutor(executorType, handler);
+                    response = executor.execute(handler, request, resolvedTenantCode);
+                } catch (Exception e) {
+                    log.error("Executor failed for task {}: {}", task.getId(), e.getMessage(), e);
+                    response = WorkerExecutionResult.builder()
+                        .taskId(String.valueOf(task.getId()))
+                        .instanceId(instance.getInstanceId())
+                        .status("FAILED")
+                        .message("Executor error: " + e.getMessage())
+                        .attempt(attempt)
+                        .build();
+                }
+            } else {
+                // 回退到原有的 Worker 方式（GRPC 或未配置 handler）
+                log.info("Dispatching task {} using legacy Worker client", task.getId());
+                response = workerClient.executeTask(String.valueOf(task.getId()), request, resolvedTenantCode);
+            }
+            
             log.info(
-                    "Dispatch task {} instance {} attempt {} -> worker ack {}",
+                    "Dispatch task {} instance {} attempt {} -> execution result: {}",
                     task.getId(),
                     instance.getInstanceId(),
                     attempt,
-                    response != null ? response.getStatus() : "ACK");
+                    response != null ? response.getStatus() : "NULL");
+                    
+            // 更新任务实例状态
+            if (response != null && StringUtils.hasText(response.getStatus())) {
+                String resultStatus = response.getStatus().toUpperCase(Locale.ROOT);
+                instance.setStatus(resultStatus);
+                instance.setResult(response.getMessage());
+                instance.setFinishedAt(Instant.now());
+                taskInstanceRepository.save(instance);
+                
+                log.info("Task instance {} updated with status: {}", instance.getInstanceId(), resultStatus);
+                
+                // 记录指标
+                boolean success = "SUCCESS".equals(resultStatus);
+                recordOutcome(task, resolvedTenantId, success);
+                
+                // 如果失败，安排重试
+                if (!success) {
+                    scheduleRetryIfNeeded(task, instance, resolvedTenantId, resolvedTenantCode, 
+                        retryPolicy, maxRetry, baseBackoffMs, attempt);
+                }
+            } else {
+                // 如果响应为空或状态为空，标记为未知
+                log.warn("Task {} execution returned null or empty status, marking as FAILED", task.getId());
+                instance.setStatus("FAILED");
+                instance.setResult("Execution returned null or invalid response");
+                instance.setFinishedAt(Instant.now());
+                taskInstanceRepository.save(instance);
+                recordOutcome(task, resolvedTenantId, false);
+            }
         } catch (Exception ex) {
             log.error(
                     "Failed to dispatch task {} instance {} to worker: {}",
@@ -224,6 +291,21 @@ public class TaskExecutionService {
             if (dispatchSample != null && workerDispatchTimer != null) {
                 dispatchSample.stop(workerDispatchTimer);
             }
+        }
+    }
+    
+    /**
+     * 解析执行器类型
+     */
+    private ExecutorType resolveExecutorType(String value) {
+        if (!StringUtils.hasText(value)) {
+            return null;
+        }
+        try {
+            return ExecutorType.valueOf(value);
+        } catch (IllegalArgumentException ex) {
+            log.warn("Invalid executor type: {}", value);
+            return null;
         }
     }
 
@@ -423,7 +505,38 @@ public class TaskExecutionService {
                 .retry(entity.getAttempts() != null ? entity.getAttempts() : 0)
                 .log(entity.getResult())
                 .traceId(entity.getInstanceId())
+                .parameters(parseResultParameters(entity.getResult()))
                 .build();
+    }
+
+    private Map<String, Object> parseResultParameters(String result) {
+        if (!StringUtils.hasText(result)) {
+            return new HashMap<>();
+        }
+        try {
+            // 尝试解析 JSON 格式的结果
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> resultMap = mapper.readValue(result, Map.class);
+            
+            // 提取参数信息
+            Map<String, Object> parameters = new HashMap<>();
+            if (resultMap.containsKey("parameters")) {
+                Object params = resultMap.get("parameters");
+                if (params instanceof Map) {
+                    parameters.putAll((Map<String, Object>) params);
+                }
+            }
+            
+            // 如果结果本身就是参数格式，直接使用
+            if (parameters.isEmpty() && resultMap.size() > 0) {
+                parameters.putAll(resultMap);
+            }
+            
+            return parameters;
+        } catch (Exception e) {
+            // 如果解析失败，返回空参数
+            return new HashMap<>();
+        }
     }
 
     private TaskStatus mapStatus(String status) {

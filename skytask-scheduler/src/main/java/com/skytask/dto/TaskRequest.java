@@ -14,31 +14,34 @@ import lombok.Data;
 public class TaskRequest {
     private String id;
 
-    @NotBlank(message = "????????")
+    @NotBlank(message = "Task name cannot be empty")
     private String name;
 
-    @NotBlank(message = "????????")
+    @NotBlank(message = "Task group cannot be empty")
     private String group;
 
-    @NotNull(message = "????????")
+    @NotNull(message = "Task type cannot be null")
     private TaskType type;
 
-    @NotNull(message = "????????")
+    @NotNull(message = "Executor type cannot be null")
     private ExecutorType executorType;
+
+    @NotBlank(message = "Handler cannot be empty")
+    private String handler;
 
     private String cronExpr;
     private String timeZone;
 
-    @NotNull(message = "????????")
+    @NotNull(message = "Route strategy cannot be null")
     private RouteStrategy routeStrategy;
 
-    @NotNull(message = "????????")
+    @NotNull(message = "Retry policy cannot be null")
     private RetryPolicy retryPolicy;
 
     private int maxRetry = 0;
     private int timeout = 60;
 
-    @NotBlank(message = "???????")
+    @NotBlank(message = "Owner cannot be empty")
     private String owner;
 
     private List<String> tags;
